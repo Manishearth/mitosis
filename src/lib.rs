@@ -21,7 +21,7 @@ use ipc_channel::Error as IpcError;
 use serde::{Deserialize, Serialize};
 use std::{env, mem, process};
 
-const ARGNAME: &'static str = "--mitosis-content-process-id=";
+const IMBABY: &'static str = "--mitosis-content-process-id=";
 
 /// Initialize mitosis
 ///
@@ -38,8 +38,8 @@ pub fn init() {
         return;
     }
     if let Some(arg) = args.nth(1) {
-        if arg.starts_with(ARGNAME) {
-            bootstrap_ipc(arg[ARGNAME.len()..].into());
+        if arg.starts_with(IMBABY) {
+            bootstrap_ipc(arg[IMBABY.len()..].into());
         }
     }
 }
@@ -111,7 +111,7 @@ pub fn spawn<
         env::current_exe().unwrap()
     };
     let mut child = process::Command::new(me);
-    child.arg(format!("{}{}", ARGNAME, token));
+    child.arg(format!("{}{}", IMBABY, token));
     child.spawn().unwrap();
 
     let (_rx, tx) = server.accept().unwrap();
