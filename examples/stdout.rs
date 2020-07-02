@@ -12,6 +12,11 @@ fn main() {
     });
 
     let mut s = String::new();
-    handle.stdout().unwrap().read_to_string(&mut s).unwrap();
+    handle
+        .stdout()
+        .take()
+        .unwrap()
+        .read_to_string(&mut s)
+        .unwrap();
     assert_eq!(s, "1 2\n");
 }

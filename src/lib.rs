@@ -246,17 +246,17 @@ impl<T: Serialize + for<'de> Deserialize<'de>> JoinHandle<T> {
     }
 
     /// Fetch the `stdin` handle if it has been captured
-    pub fn stdin(&mut self) -> Option<&mut ChildStdin> {
-        self.process.stdin.as_mut()
+    pub fn stdin(&mut self) -> &mut Option<ChildStdin> {
+        &mut self.process.stdin
     }
 
     /// Fetch the `stdout` handle if it has been captured
-    pub fn stdout(&mut self) -> Option<&mut ChildStdout> {
-        self.process.stdout.as_mut()
+    pub fn stdout(&mut self) -> &mut Option<ChildStdout> {
+        &mut self.process.stdout
     }
 
     /// Fetch the `stderr` handle if it has been captured
-    pub fn stderr(&mut self) -> Option<&mut ChildStderr> {
-        self.process.stderr.as_mut()
+    pub fn stderr(&mut self) -> &mut Option<ChildStderr> {
+        &mut self.process.stderr
     }
 }
