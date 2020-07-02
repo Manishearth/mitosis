@@ -135,6 +135,12 @@ pub fn spawn<
     Builder::new().spawn(args, f)
 }
 
+trait ZstAssert: Sized {
+    const MITOSIS_CLOSURE_CANNOT_BORROW_DATA: () = [()][(mem::size_of::<Self>() != 0) as usize];
+}
+
+impl<T: Sized> ZstAssert for T {}
+
 impl Builder {
     pub fn spawn<
         F: FnOnce(A) -> R + Copy,
@@ -145,8 +151,9 @@ impl Builder {
         args: A,
         _: F,
     ) -> JoinHandle<R> {
-        if mem::size_of::<F>() != 0 {
-            panic!("mitosis::spawn cannot be called with closures that capture data!");
+        #[allow(path_statements)]
+        {
+            F::MITOSIS_CLOSURE_CANNOT_BORROW_DATA;
         }
 
         let (server, token) = IpcOneShotServer::<IpcSender<BootstrapData>>::new().unwrap();
