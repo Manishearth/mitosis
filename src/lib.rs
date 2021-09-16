@@ -14,10 +14,10 @@
 //!
 //! `mitosis::spawn()` can pass arbitrary serializable data, including IPC senders
 //! and receivers from the `ipc-channel` crate, down to the new process.
+
 use ipc_channel::ipc::{
-    self, IpcOneShotServer, IpcReceiver, IpcSender, OpaqueIpcReceiver, OpaqueIpcSender,
+    self, IpcError, IpcOneShotServer, IpcReceiver, IpcSender, OpaqueIpcReceiver, OpaqueIpcSender,
 };
-use ipc_channel::Error as IpcError;
 use serde::{Deserialize, Serialize};
 use std::ffi::OsStr;
 use std::path::PathBuf;

@@ -11,6 +11,6 @@ description = "Crate providing the ability to spawn processes with custom closur
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-ipc-channel = "0.13.0"
-serde = { version = "1.0.104", features = ["derive"] }
+ipc-channel = "0.15.0"
+serde = { version = "1.0.130", features = ["derive"] }
 lazy_static = "1.4.0"
