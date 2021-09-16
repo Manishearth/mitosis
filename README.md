@@ -1,7 +1,7 @@
 ## mitosis
 
 [![Build Status](https://github.com/manishearth/mitosis/workflows/Tests/badge.svg)](https://github.com/Manishearth/mitosis/actions)
-[![Current Version](https://meritbadge.herokuapp.com/mitosis)](https://crates.io/crates/mitosis)
+[![Current Version](https://img.shields.io/crates/v/mitosis.svg)](https://crates.io/crates/mitosis)
 [![License: MIT/Apache-2.0](https://img.shields.io/crates/l/mitosis.svg)](#license)
 
 > "AWS Lambda for your local machine"
